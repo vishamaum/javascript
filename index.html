@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date Facts</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        #facts{
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card card-body bg-danger mt-5 p-5 text-white ">
+                   <h4>Date Facts</h4>
+                   <p>Enter a date and get random facts</p>
+                   <input  type="text" id="dateInput" class="form-control form-control-lg" placeholder="Enter your date" value="5/31/date">
+                    <div id="facts" class="card card-body bg-dark mt-4 p-4 " >
+                    <h4 class=" card-title">Date Fact</h4>
+                    <hr class="bg-white">
+                    <p id="dateFact" class="card-text"></p>
+                </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let fact  = document.querySelector('#facts');
+        let date = document.querySelector('#dateInput');
+        
+        let dateFact = document.querySelector('#dateFact');
+        
+        date.addEventListener('input', getDate);
+        
+        function getDate(){
+            let dte = date.value;
+            
+            fetch('http://numbersapi.com/'+dte)
+            .then(response => response.text())
+            .then(data => {
+                if(data){
+                    if(dte != ''){
+                        
+                        fact.style.display = 'block';
+                        dateFact.innerText = data;
+                    }
+                }
+            })
+        }
+        
+        
+        
+    </script>
+</body>
+</html>
