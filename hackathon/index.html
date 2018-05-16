@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hackathon</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+    <div class="container text-center ">
+    <h3 class="display-4 text-center text-white ">Coming Hackathon</h3>
+    <button id="button" class="btn btn-primary bg-dark ">click</button>
+    
+    </div>
+    <div id="output"></div>
+    <script>
+    
+    document.getElementById('button').addEventListener('click',getData);
+        
+        function getData(){
+            
+            fetch('http://www.hackathonwatch.com/api//hackathons/coming.json?page=1')
+            .then(response => response.json())
+            .then(data =>{
+               let output = '<div class="card-columns mt-2">';
+                
+                data.forEach(post =>{
+                    
+                    output +=`<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${post.name}</h5>
+    <p class="card-text">${truncateText(post.description, 100)}</p>
+    <a href="${post.public_url}" target="_blank" class="btn btn-primary">Read More</a>
+  </div>
+</div>`;
+                });
+            output +='</div>';
+                document.getElementById('output').innerHTML = output;
+            })
+        }
+        
+        function truncateText(text, limit){
+  const minified = text.indexOf(' ', limit);
+  if(minified == -1) return text;
+  return text.substring(0, minified);
+}
+
+    </script>
+</body>
+</html>
