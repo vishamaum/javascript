@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Todo App</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body class="w3-teal" onload="fetchfire()" >
+   
+    <div class="container text-center">
+        <h2 class="display-4 w3-teal mt-2">Todo App</h2>
+           <form id="sub" class="mt-5">
+    <div class="input-group ">
+  <input type="text" id="in" class="form-control shadow " placeholder="" aria-label="" aria-describedby="basic-addon1">
+  <div class="input-group-append">
+    <input type="submit" class="btn w3-cyan shadow " >
+  </div>
+</div>
+   
+    </form>
+    
+    </div>
+    
+    <div id="datas" class=" container  mt-5">
+<!--
+        <div class="card w3-cyan ">    
+                <div class="card-body w3-aqua shadow-lg rounded">
+                      <button id="del"  type="button" class="close" aria-label="Close">
+                             <span aria-hidden="true">&times;</span>
+                     </button>
+                    <div class="card-text">Something is here</div>
+                    
+                </div>
+          
+        </div>
+-->
+    </div>
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
