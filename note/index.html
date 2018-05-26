@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <title>Display</title>
+</head>
+<body class="w3-cyan" >
+    <div class="container mt-3">
+                 <nav class=" navbar fixed-top navbar-inverse w3-light-blue">
+<a class="navbar-brand text-white" href="index.php">Blog</a>
+</nav>
+        <div class="row" id="output" >
+           
+        </div>
+    </div>
+    
+    <script>
+        
+        
+    function remove(){
+        
+        document.getElementById('new').style.display = 'none';
+    }
+        
+        
+    fetch('./data.php')
+        .then(ref => ref.text())
+    .then(data =>{
+        document.getElementById('output').innerHTML = `${data}`;
+    })
+        
+    </script>
+</body>
+</html>
